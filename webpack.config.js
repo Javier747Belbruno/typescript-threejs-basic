@@ -1,19 +1,19 @@
 const { resolve } = require('path');
-const nodeExternals = require('webpack-node-externals');
+
 
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
   },
-  externals: [nodeExternals()], 
+  
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },

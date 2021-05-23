@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --inline --open",
-    "build": "npx webpack --config webpack.config.js"
+    "build": "npx webpack --config webpack.config.js && xcopy \\src\\assets \\dist\\src\\assets"
   },
   "repository": {
     "type": "git",
@@ -29,8 +29,7 @@
     "typescript": "latest",
     "webpack": "latest",
     "webpack-cli": "latest",
-    "webpack-dev-server": "latest",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-dev-server": "latest"
   },
   "dependencies": {
     "three": "latest",
