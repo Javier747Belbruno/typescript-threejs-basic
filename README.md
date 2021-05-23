@@ -21,7 +21,7 @@ npm run build
 ### Start
 
 ```
-$ git clone https://github.com/pinqy520/three-typescript-starter.git
+$ git clone https://github.com/Javier747Belbruno/threejs-basic-render-typescript
 $ cd three-typescript-starter
 $ npm install # or yarn
 $ npm start
