@@ -30,6 +30,7 @@
     "webpack-dev-server": "latest"
   },
   "dependencies": {
-    "three": "latest"
+    "three": "latest",
+    "rxjs": "latest"
   }
 }
