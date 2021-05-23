@@ -4,23 +4,6 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-
-
-
-
-// import the fromEvent operator
-import { fromEvent } from 'rxjs';
-
-//Just for test FromEvent.
-
-// grab button reference
-const button = document.getElementById('bg');
-// create an observable of button clicks
-const myObservable = fromEvent(button, 'click');
-// for now, let's just log the event on each click
-const subscription = myObservable.subscribe(event => console.log(event));
-
-
 // create the scene
 const scene = new THREE.Scene();
 
@@ -34,8 +17,8 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
-camera.position.setX(-3);
+//camera.position.setZ(30);
+//camera.position.setX(-3);
 
 renderer.render(scene, camera);
 
@@ -86,7 +69,7 @@ scene.background = spaceTexture;
 
 const cubeTexture = new THREE.TextureLoader().load('./src/assets/cube.jpg');
 
-const cube = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: cubeTexture }));
+const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ map: cubeTexture }));
 
 scene.add(cube);
 
@@ -108,13 +91,17 @@ scene.add(moon);
 moon.position.z = 30;
 moon.position.setX(-6);
 
-cube.position.z = -5;
-cube.position.x = 2;
-
+cube.position.z = -4;
+cube.position.x = 1;
+cube.position.y = 1;
+cube.quaternion.y = -0.05;
+cube.quaternion.x = 0.1;
 // Scroll Animation
 
 function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
+  var t = document.body.getBoundingClientRect().top;
+  if(t < 0){
+    
   moon.rotation.x += 0.05;
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
@@ -125,11 +112,25 @@ function moveCamera() {
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
+  }
 }
 
 
 document.body.onscroll = moveCamera;
 moveCamera();
+
+//onWindowResize
+
+window.addEventListener('resize', onWindowResize.bind(this), false);
+
+function onWindowResize(): void {
+  const width: number = window.innerWidth;
+  const height: number = window.innerHeight;
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  (camera as THREE.PerspectiveCamera).aspect = width / height;
+  (camera as THREE.PerspectiveCamera).updateProjectionMatrix();
+}
 
 // Animation Loop
 
@@ -143,7 +144,7 @@ function animate() {
   moon.rotation.x += 0.005;
 
   controls.update();
-
+  
   renderer.render(scene, camera);
 }
 
