@@ -4,6 +4,10 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
+
+
+
+
 // import the fromEvent operator
 import { fromEvent } from 'rxjs';
 
@@ -75,12 +79,12 @@ Array(200).fill(200,0,200).forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load('./src/assets/space.jpg');
 scene.background = spaceTexture;
 
 // Avatar
 
-const cubeTexture = new THREE.TextureLoader().load('cube.jpg');
+const cubeTexture = new THREE.TextureLoader().load('./src/assets/cube.jpg');
 
 const cube = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: cubeTexture }));
 
@@ -88,8 +92,8 @@ scene.add(cube);
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+const moonTexture = new THREE.TextureLoader().load('./src/assets/moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('./src/assets/normal.jpg');
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -102,7 +106,7 @@ const moon = new THREE.Mesh(
 scene.add(moon);
 
 moon.position.z = 30;
-moon.position.setX(-10);
+moon.position.setX(-6);
 
 cube.position.z = -5;
 cube.position.x = 2;

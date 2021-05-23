@@ -11,6 +11,12 @@
 ```
 npm install typescript -g
 ```
+### Build Bundle
+
+```
+npm run build
+```
+*On progress*
 
 ### Start
 

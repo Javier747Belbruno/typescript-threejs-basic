@@ -1,25 +1,27 @@
 {
-  "name": "three-typescript-starter",
+  "name": "threejs-basic-render-typescript",
   "version": "1.0.0",
   "description": "three.js + typescript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --inline --open"
+    "start": "webpack serve --inline --open",
+    "build": "npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pinqy520/three-typescript-starter.git"
+    "url": "git+https://github.com/Javier747Belbruno/threejs-basic-render-typescript.git"
   },
   "keywords": [],
-  "author": "Huang Qi",
+  "author": "Huang Qi - Jeff Delaney - Javier Belbruno ",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pinqy520/three-typescript-starter/issues"
+    "url": "https://github.com/Javier747Belbruno/threejs-basic-render-typescript.git/issues"
   },
-  "homepage": "https://github.com/pinqy520/three-typescript-starter#readme",
+  "homepage": "https://github.com/Javier747Belbruno/threejs-basic-render-typescript.git#readme",
   "devDependencies": {
     "css-loader": "latest",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "latest",
     "progress-bar-webpack-plugin": "latest",
     "style-loader": "latest",
@@ -27,7 +29,8 @@
     "typescript": "latest",
     "webpack": "latest",
     "webpack-cli": "latest",
-    "webpack-dev-server": "latest"
+    "webpack-dev-server": "latest",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
     "three": "latest",

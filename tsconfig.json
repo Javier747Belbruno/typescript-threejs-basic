@@ -8,10 +8,16 @@
         "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "./lib/",
-        "sourceMap": true
+        "sourceMap": true,
+        "paths": {
+            "~/assets/*": [
+              "./src/assets/*"
+            ]
+        }
     },
     "exclude": [
         "node_modules",
         "lib"
-    ]
+    ],
+    "include": ["src", "index.d.ts"] 
 }
